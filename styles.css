@@ -28,4 +28,8 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.rocket-dancer{
+  color: rgb(205, 226, 17);
+  position:absolute;
+}
 

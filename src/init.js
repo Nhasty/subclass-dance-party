@@ -28,6 +28,15 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+  $('.line-up-button').on('click', function(event) {
+    //debugger;
+    window.dancers.forEach(function(dancer) {
+
+      dancer.lineUp();
+    });
   });
 
 });
