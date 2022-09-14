@@ -1,21 +1,25 @@
 var BouncyDancer = function(top, left, timeBetweenSteps) {
-  // var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
   Dancer.call(this, top, left, timeBetweenSteps);
 
+  this.yLocation = $("body").height() *
+  //this.timeBetweenSteps = 999;
+  //some set location on screen
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
-
-  var oldStep = this.step;
-};
-
+  this.setPosition(this.yLocation, left);
+  // generate a random value (75vh and the top of the screen)
+  this.bounceHeight = Math.floor(Math.random() * 75) + 'vh';
+}
 BouncyDancer.prototype = Object.create(Dancer.prototype);
 BouncyDancer.prototype.constructor = BouncyDancer;
 
 BouncyDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
-  oldStep();
-  // toggle() is a jQuery method to show/hide the <span> tag.
-  // See http://api.jquery.com/category/effects/ for this and
-  // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.toggle();
-};
+  Dancer.prototype.step.call(this);
+  this.$node.animate({
+    top: this.bounceHeight
+    }, this.timeBetweenSteps / 1.75); // 2nd input to animate is the duration
+  this.$node.animate({
+    top: this.yLocation
+  }, this.timeBetweenSteps / 1.75);
+}

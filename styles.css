@@ -3,12 +3,15 @@ body, html{
 }
 body{
   margin: 0px;
+  background-image: url(assets/anime-park.jpeg);
+  background-size: cover;
   background-color:#444;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
@@ -25,3 +28,4 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
